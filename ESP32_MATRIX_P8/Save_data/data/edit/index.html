@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FSBrowserNG Edit</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=0.67" name="viewport">
+    <link href="./edit.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pt-5">
+
+<div id="navBar" style="width: 100%">
+    <script id="replace_with_navbar" src="/nav-bar/nav-bar.js"></script>
+</div>
+
+<div class="container" xmlns="http://www.w3.org/1999/xhtml">
+
+    <div class="col-lg-10 mx-auto">
+        <h2 class="sub-title d-flex justify-content-between">
+            <div id="title" style="color: #fff;">
+            </div>
+            <div>
+                <span style="color: #fff;">Upload</span>
+                <svg fill="none" id="upload-button" stroke="#ff0000" style="width: 50px;"
+                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M15 21H9C6.17157 21 4.75736 21 3.87868 20.1213C3 19.2426 3 17.8284 3 15M21 15C21 17.8284 21 19.2426 20.1213 20.1213C19.8215 20.4211 19.4594 20.6186 19 20.7487"
+                              stroke="#0091ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        <path d="M12 16V3M12 3L16 7.375M12 3L8 7.375" stroke="#0091ff" stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="1.5"></path>
+                    </g>
+                </svg>
+            </div>
+        </h2>
+        <div class="mt-4" style="background-color: #0000008a; height: 10px; border-radius: 7px;"></div>
+        <h2 class="d-flex justify-content-end">
+            <span id="status"></span>
+        </h2>
+        <!--background-color: #0000008a;-->
+    </div>
+    <div class="main-container md-8">
+        <section>
+            <div class="container py-1 mt-5" id="">
+                <div class="card mb-4 py-3 px-3" style="width: 100%; height: 500px; overflow: auto; max-height: 100%;">
+                    <div class="row row-cols-3 row-cols-md-3" id="container">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <img alt="GIF" id="displayer" src="">
+            </div>
+        </div>
+
+        <div class="modal-upload" id="modal-upload">
+            <div class="modal-upload-content card">
+                <label for="upload-displayer">
+                    <svg fill="none" id="upload-button" stroke="#ff0000" style="width: 100%;" 
+                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M15 21H9C6.17157 21 4.75736 21 3.87868 20.1213C3 19.2426 3 17.8284 3 15M21 15C21 17.8284 21 19.2426 20.1213 20.1213C19.8215 20.4211 19.4594 20.6186 19 20.7487"
+                                  stroke="#0091ff" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.5"></path>
+                            <path d="M12 16V3M12 3L16 7.375M12 3L8 7.375" stroke="#0091ff" stroke-linecap="round"
+                                  stroke-linejoin="round" stroke-width="1.5"></path>
+                        </g>
+                    </svg>
+                </label>
+                <input hidden id="upload-displayer" name="upload-displayer" onchange="handleFileInput()" type="file" accept="image/gif">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="./edit.js"></script>
+</html>

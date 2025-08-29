@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>FSBrowserNG Lighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="./FSBrowserNG.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body style="border: none">
+
+<div class="card mb-4 d-flex justify-content-center" style="height: 570px">
+    <form method="post">
+        <div class="card-body d-flex justify-content-center">
+            <div class="col-sm-9">
+                <div class="mx-auto pt-3 ms-5">
+                    <h2 class="d-flex justify-content-between" style="color: #000; font-size: x-large;">
+                        <div>
+                            <label for="lighting">
+                                Luminosité: <span id="lightingValue" class="mx-3" style="color: #0091ff;"></span>
+                            </label>
+                        </div>
+                        <label for="auto" class="me-3">Auto</label>
+                    </h2>
+                    <div class="mt-1" style="background-color: #0000008a; height: 7px; border-radius: 7px;"></div>
+
+                    <h2 class="d-flex justify-content-between me-3" style="color: #fff; font-size: x-large;">
+                        <input class="my-auto mx-3" type="range" id="lighting" oninput="ranger()" min="1" max="8"
+                               style="border: solid black; width: 80%;">
+                        <input type="checkbox" class="form-check-input my-auto mx-auto" id="auto"  onclick="disable()" style="border: solid black;">
+                    </h2>
+                    <!--background-color: #0000008a;-->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function read() {
+        fetch('/admin/lighting')
+            .then(response => response.text())
+            .then(data => {
+                let fields = data.split('|');
+                console.info(fields);
+                document.getElementById('lighting').value = fields[1];
+                document.getElementById('lightingValue').textContent = fields[1];
+                document.getElementById('auto').checked = fields[3] === '1';
+
+            })
+            .catch(error => {
+                // handle any errors that occur during the fetch request
+                console.error(error);
+            });
+    }
+
+    function applyLighting() {
+
+        const lighting = document.getElementById('lighting');
+        const auto = document.getElementById('auto');
+
+        let formData = new FormData();
+
+        if(auto.checked){
+            formData.append("auto", auto.checked);
+        } else {
+            formData.append("lighting", lighting.value);
+        }
+        console.log('formData: ', formData);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/admin/lighting", true);
+        xhr.send(formData);
+
+        setTimeout(() => {
+            alert("Luminosité enregistrée avec succès !");
+        }, 1.5*1000);
+    }
+
+    function ranger() {
+        const rangeInput = document.getElementById('lighting');
+        const rangeValue = document.getElementById('lightingValue');
+        rangeValue.textContent = rangeInput.value;
+        console.log(rangeInput.value);
+        applyLighting();
+    }
+
+    function disable() {
+        let lighting = document.getElementById('lighting');
+        let auto = document.getElementById('auto');
+        console.log("disabled: ", auto.checked);
+        if (auto.checked) {
+            lighting.disabled = true;
+            applyLighting();
+        } else {
+            applyLighting();
+            lighting.disabled = false;
+        }
+    }
+
+    function refreshStatus() {
+        // document.getElementById("status").innerHTML = "(refreshing...)";
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onload = function () {
+            if (xmlHttp.status !== 200) showHttpError(xmlHttp);
+            else {
+                fsInfo = JSON.parse(xmlHttp.responseText);
+                console.log(fsInfo);
+                let status = fsInfo.type + " - ";
+                if (fsInfo.isOk === 'true') {
+                    let percent = (1 + Math.round(99 * fsInfo.usedBytes / fsInfo.totalBytes)); // fake to see the "used" bar in any case
+                    let text = readableSize(fsInfo.totalBytes - fsInfo.usedBytes) + " free of " + readableSize(fsInfo.totalBytes);
+                    status += "<meter id='fsMeter' min='0' optimum='0' low='90' high='95' max='100' value='" + percent + "' title='" + text + "' style='border: solid black; width: 70%;'>" + text + "</meter>"
+                    if (fsInfo.unsupportedFiles) {
+                        status += " <span id='warning'>WARNING<span class='tooltip'>"
+                            + "Filesystem&nbsp;contains&nbsp;unsupported&nbsp;filenames:<br/>"
+                            + fsInfo.unsupportedFiles
+                            + "</span></span>";
+                    }
+                } else {
+                    status += "<span style='background-color:red;color:white;font-weight:bold'>INIT ERROR !</span>";
+                }
+                document.getElementById("status").innerHTML = status;
+                if (fsInfo.type !== "SPIFFS") {
+                    // document.getElementById("mkdir").style.display = "inline";
+                }
+            }
+        };
+        xmlHttp.open("GET", "/status", true);
+        xmlHttp.send(null);
+    }
+
+    window.onload = function () {
+        read();
+    }
+</script>
+
+</body>
+
+</html>

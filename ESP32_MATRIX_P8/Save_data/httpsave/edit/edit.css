@@ -1,0 +1,80 @@
+@import '../style.css';
+
+.container {
+    height: 100vh;
+    margin-top: 5%;
+    margin-bottom: -50px;
+    font-size: larger;
+    padding-left: 2%;
+    box-shadow: inset black; /* 10px; */
+}
+
+.active {
+    color: white;
+    background-color: #0066ff;
+}
+
+.sub-title {
+    margin: auto;
+}
+
+input, select, textarea {
+    border: solid black;
+}
+
+.modal, .modal-upload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modal-content,
+.modal-upload-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: none;
+    border: none;
+}
+
+#status {
+    color: #ffffff;
+    font-size: smaller;
+}
+
+#contextMenu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    display: none;
+}
+
+#contextMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#contextMenu li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#contextMenu li:hover {
+    background-color: #f0f0f0;
+}
+
+.hide {
+    display: none;
+}

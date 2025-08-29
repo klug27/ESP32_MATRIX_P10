@@ -1,0 +1,8 @@
+@import '/css/style.css';
+
+
+body {
+    background: #ffcd9bbb url('./images/image00003.png') no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(20px);
+}

@@ -1,0 +1,15 @@
+[
+    {
+		"type": "Texte",
+		"text": "CAMTRONICS SARL BETA TECHNOLOGIE",
+		"font": "Roboto",
+		"size": 24,
+		"bcolor": "000000",
+		"fcolor": "ff0000",
+		"animation": "Droite vers Gauche",
+		"speed": 100,
+		"row": "center",
+		"col": "center",
+		"timing": 1
+    }
+]

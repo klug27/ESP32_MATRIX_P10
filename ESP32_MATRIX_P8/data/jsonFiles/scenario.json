@@ -1,0 +1,47 @@
+[
+	 {
+		"type": "Texte",
+		"text": "CAMTRONICS SARL",
+		"font": "Roboto",
+		"size": 24,
+		"bcolor": "000000",
+		"fcolor": "ff0000",
+		"animation": "Gauche vers Droite",
+		"speed": 60,
+		"row": "center",
+		"col": "center",
+		"timing": 1
+    },
+	{
+		"type": "Texte",
+		"text": "CAMTRONICS SARL",
+		"font": "Roboto",
+		"size": 16,
+		"bcolor": "000000",
+		"fcolor": "ff0000",
+		"animation": "Gauche vers Droite",
+		"speed": 60,
+		"row": "center",
+		"col": "center",
+		"timing": 1
+    },
+	{
+		"type": "Texte",
+		"text": "CAMTRONICS SARL",
+		"font": "Roboto",
+		"size": 12,
+		"bcolor": "000000",
+		"fcolor": "ff0000",
+		"animation": "Gauche vers Droite",
+		"speed": 60,
+		"row": "center",
+		"col": "center",
+		"timing": 1
+    },
+	{
+		"type": "Effet",
+		"link": "matrix-spin.gif",
+		"timing": 10
+	}
+]
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FSBrowserNG Config</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=0.67">
+    <link rel="stylesheet" type="text/css" href="config.css">
+</head>
+
+<body class="pt-5">
+
+<div id="navBar" style="width: 100%">
+    <script id="replace_with_navbar" src="/nav-bar/nav-bar.js"></script>
+</div>
+
+<div class="container" xmlns="http://www.w3.org/1999/xhtml">
+
+    <div class="col-lg-10 mx-auto">
+        <h2 id="title" style="color: #fff;"></h2>
+        <div class="mt-1" style="background-color: #0000008a; height: 10px; border-radius: 7px;"></div>
+<!-- 
+        <h2 class="d-flex justify-content-end" style="color: #fff; font-size: x-large;">
+            Luminosité: <span id="lightingValue" class="mx-3" style="color: #0091ff;"></span> 
+            <input class="my-auto mx-3" type="range" id="lighting" min="1" max="8" style="border: solid black; width: 20%;">
+            <label for="auto" class="me-3">Auto</label>
+            <input type="checkbox" class="form-check-input my-auto" id="auto" class="my-auto mx-auto" onclick="disable()" style="border: solid black;">
+
+        </h2> -->
+        <!--background-color: #0000008a;-->
+    </div>
+
+    <div class="main-container md-8">
+        <section>
+            <!-- <form onsubmit="send()"> -->
+
+            <div class="container py-1">
+
+                <div class="row">
+
+                    <div class="col-lg-1">
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush rounded-3">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3"
+                                        id="l001" onclick="toggleView(0)">
+                                        <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                        <p class="mb-0">1</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3"
+                                        id="l002" onclick="toggleView(1)">
+                                        <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                        <p class="mb-0">2</p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush rounded-3">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3"
+                                        id="l101">
+                                        <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                        <label for="S001"></label>
+                                        <select class="select form-control form-control-sm" id="S001"
+                                                style="border: solid black;">
+                                            <option onclick="toggleType(0, 'null')" value="null">Rien</option>
+                                            <option onclick="toggleType(0, 'Texte')" value="Texte">Texte</option>
+                                        </select>
+                                    </li>
+
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3"
+                                        id="l102">
+                                        <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                        <label for="S002"></label>
+                                        <select class="select form-control form-control-sm" id="S002"
+                                                style="border: solid black;">
+                                            <option onclick="toggleType(1, 'null')" value="null">Rien</option>
+                                            <option onclick="toggleType(1, 'Texte')" value="Texte">Texte</option>
+                                        </select>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <form id="myForm">
+
+                            <div id="scripts">
+                                <div class="card mb-4" style="height: 690px">
+                                    <h3 class="sub-title"> Choisissez une configuration ! </h3>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="button d-flex justify-content-end mb-4">
+                                    <button class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                            id="backBtn" onclick="back()" type="button">Precedent
+                                    </button>
+                                    <button class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                            disabled
+                                            onclick="checkS()" style="margin-left: 20px;" type="button">Visualiser
+                                    </button>
+                                    <button class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                            id="nextBtn" onclick="next()" style="margin-left: 20px;" type="button">
+                                        Suivant
+                                    </button>
+                                    <button class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                            id="submitButton" onclick="send()" style="margin-left: 20px;" type="button">
+                                        Valider
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- </form> -->
+        </section>
+
+    </div>
+
+</div>
+
+<script src="config.js"></script>
+
+</body>
+</html>
+

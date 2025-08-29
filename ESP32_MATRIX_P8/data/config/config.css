@@ -1,0 +1,32 @@
+@import '../style.css';
+
+.container {
+    height: 100vh;
+    margin-top: 5%;
+    margin-bottom: -50px;
+    font-size: larger;
+    padding-left: 2%;
+    box-shadow: inset black; /* 10px; */
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+}
+
+.active {
+    color: white;
+    background-color: #0066ff;
+}
+
+.fulled {
+    color: white;
+    background-color: #00bb00;
+}
+
+.sub-title {
+    margin: auto;
+}
+
+input, select, textarea {
+    border: solid black;
+}

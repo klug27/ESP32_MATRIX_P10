@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Droite vers Gauche"
+    },
+    {
+        "type": "Gauche vers Droite"
+    },
+    {
+        "type": "Haut vers Bas"
+    },
+    {
+        "type": "Bas vers Haut"
+    }
+]
