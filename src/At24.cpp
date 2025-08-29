@@ -93,13 +93,13 @@ void readMemSerialNumber(uint8_t u8SerialNumber[])
 }
 
 
-void readMem(uint8_t *u8PtrDest, uint8_t u8StartAdress, uint8_t u8DataLen)
+void readMem(uint8_t *u8PtrDest, uint8_t u8StartAdress, uint16_t u16DataLen)
 {
   if (memInitialized == true)
   {
-    if ((u8DataLen <= 128) && (u8DataLen > 0) && (u8PtrDest != nullptr))
+    if ((u16DataLen <= 256) && (u16DataLen > 0) && (u8PtrDest != nullptr))
     {
-      for (uint8_t u8Idx= 0; u8Idx < u8DataLen; u8Idx++)
+      for (uint8_t u8Idx= 0; u8Idx < u16DataLen; u8Idx++)
       {
         // fetch data
         u8PtrDest[u8Idx] = sAt24mac402.readByte(u8StartAdress);
@@ -116,12 +116,12 @@ void writeMem(const uint8_t *u8PtrSrc, uint8_t u8StartAdress, uint16_t u16DataLe
 {
   if (memInitialized == true)
   {
-    if ((u16DataLen <= 128) && (u16DataLen > 0) && (u8PtrSrc != nullptr))
+    if ((u16DataLen <= 256) && (u16DataLen > 0) && (u8PtrSrc != nullptr))
     {
-      for (uint8_t u8Idx= 0; u8Idx < u16DataLen; u8Idx++)
+      for (uint16_t u16Idx = 0; u16Idx < u16DataLen; u16Idx++)
       {
         // write data in the memory
-        sAt24mac402.writeByte(u8StartAdress, u8PtrSrc[u8Idx]);
+        sAt24mac402.writeByte(u8StartAdress, u8PtrSrc[u16Idx]);
   
         // increment adress
         u8StartAdress++;

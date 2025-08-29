@@ -22,7 +22,7 @@ void AT24MAC402::begin(TwoWire &wire) {
 	}
 
 void AT24MAC402::writeByte(uint8_t address, uint8_t data) {
-	if (address < 128) {
+	if (address <= 255) {
 		wire->beginTransmission(i2cAddress);
 		wire->write(address);
 		wire->write(data);
@@ -32,7 +32,7 @@ void AT24MAC402::writeByte(uint8_t address, uint8_t data) {
 	}
 
 uint8_t AT24MAC402::readByte(uint8_t address) {
-	if (address < 128) {
+	if (address <= 255) {
 		uint8_t data;
 		wire->beginTransmission(i2cAddress);
 		wire->write(address);
